@@ -1,8 +1,9 @@
 <?php
 
-class MissionController extends Mission
-{
 
+class MissionTypeController
+{
+    
     private PDO $pdo;
 
     public function __construct()
@@ -17,7 +18,6 @@ class MissionController extends Mission
         } catch (PDOException $e) {
             die($e->getMessage());
         }
-        return $pdo;
     }
 
     public function setPdo(PDO $pdo)
@@ -26,31 +26,25 @@ class MissionController extends Mission
         return $this;
     }
 
-    public function getPdo()
-    {
-        return $this->pdo;
-    }
-
     public function getAll(): array 
     {
-        $missions = [];
-        $req = $this->pdo->query("SELECT * FROM mission");
+        $missionTypes = [];
+        $req = $this->pdo->query("SELECT * FROM mission_type");
         $data = $req->fetchAll();
-        foreach ($data as $mission) {
-            $missions[] = new Mission($mission);
+        foreach ($data as $missionType) {
+            $missionTypes[] = new MissionType($missionType);
         }
-        return $missions;
+        return $missionTypes;
     }
 
-    public function get(int $id): Mission 
+    public function get(int $id): MissionType 
     {
-        $req = $this->pdo->prepare("SELECT * FROM mission WHERE id = :id");
+        $req = $this->pdo->prepare("SELECT * FROM mission_type WHERE id = :id");
         $req->execute(['id' => $id]);
         $data = $req->fetch();
-        $mission = new Mission($data);
-        return $mission;
+        $missionType = new MissionType($data);
+        return $missionType;
     }
-
 /*
     public function create(Mission $mission): bool
     {
@@ -67,5 +61,4 @@ class MissionController extends Mission
 
     }
 */
-
 }

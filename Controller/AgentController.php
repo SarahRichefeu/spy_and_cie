@@ -1,6 +1,6 @@
 <?php
 
-class MissionController extends Mission
+class AgentController extends Agent
 {
 
     private PDO $pdo;
@@ -33,22 +33,22 @@ class MissionController extends Mission
 
     public function getAll(): array 
     {
-        $missions = [];
-        $req = $this->pdo->query("SELECT * FROM mission");
+        $agents = [];
+        $req = $this->pdo->query("SELECT * FROM agent");
         $data = $req->fetchAll();
-        foreach ($data as $mission) {
-            $missions[] = new Mission($mission);
+        foreach ($data as $agent) {
+            $agents[] = new Agent($agent);
         }
-        return $missions;
+        return $agents;
     }
 
-    public function get(int $id): Mission 
+    public function get(int $id): Agent 
     {
-        $req = $this->pdo->prepare("SELECT * FROM mission WHERE id = :id");
+        $req = $this->pdo->prepare("SELECT * FROM agent WHERE id = :id");
         $req->execute(['id' => $id]);
         $data = $req->fetch();
-        $mission = new Mission($data);
-        return $mission;
+        $agent = new Agent($data);
+        return $agent;
     }
 
 /*

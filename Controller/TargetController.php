@@ -1,6 +1,6 @@
 <?php
 
-class MissionController extends Mission
+class TargetController extends Target
 {
 
     private PDO $pdo;
@@ -33,22 +33,22 @@ class MissionController extends Mission
 
     public function getAll(): array 
     {
-        $missions = [];
-        $req = $this->pdo->query("SELECT * FROM mission");
+        $targets = [];
+        $req = $this->pdo->query("SELECT * FROM target");
         $data = $req->fetchAll();
-        foreach ($data as $mission) {
-            $missions[] = new Mission($mission);
+        foreach ($data as $target) {
+            $targets[] = new Target($target);
         }
-        return $missions;
+        return $targets;
     }
 
-    public function get(int $id): Mission 
+    public function get(int $id): Target 
     {
-        $req = $this->pdo->prepare("SELECT * FROM mission WHERE id = :id");
+        $req = $this->pdo->prepare("SELECT * FROM target WHERE id = :id");
         $req->execute(['id' => $id]);
         $data = $req->fetch();
-        $mission = new Mission($data);
-        return $mission;
+        $target = new Target($data);
+        return $target;
     }
 
 /*

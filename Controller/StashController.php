@@ -1,6 +1,6 @@
 <?php
 
-class MissionController extends Mission
+class StashController extends Stash
 {
 
     private PDO $pdo;
@@ -33,22 +33,22 @@ class MissionController extends Mission
 
     public function getAll(): array 
     {
-        $missions = [];
-        $req = $this->pdo->query("SELECT * FROM mission");
+        $stashs = [];
+        $req = $this->pdo->query("SELECT * FROM stash");
         $data = $req->fetchAll();
-        foreach ($data as $mission) {
-            $missions[] = new Mission($mission);
+        foreach ($data as $stash) {
+            $stashs[] = new Stash($stash);
         }
-        return $missions;
+        return $stashs;
     }
 
-    public function get(int $id): Mission 
+    public function get(int $id): Stash 
     {
-        $req = $this->pdo->prepare("SELECT * FROM mission WHERE id = :id");
+        $req = $this->pdo->prepare("SELECT * FROM stash WHERE id = :id");
         $req->execute(['id' => $id]);
         $data = $req->fetch();
-        $mission = new Mission($data);
-        return $mission;
+        $stash = new Stash($data);
+        return $stash;
     }
 
 /*

@@ -10,6 +10,9 @@ require_once 'Controller\MissionController.php';
 $missionController = new MissionController();
 $missions = $missionController->getAll();
 
+
+
+
 foreach ($missions as $mission) { ?>
    <div class="missions d-lg-flex justify-content-between align-items-center">
         <div class="card">
