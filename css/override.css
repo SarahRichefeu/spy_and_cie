@@ -43,3 +43,21 @@ h2 {
 .card {
     width: 75vw;
 }
+
+@media screen and (max-width: 990px) {
+    .card {
+        width: 95vw;
+    }
+}
+
+@media screen and (max-width: 1225px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .login {
+        text-align: center!important;
+    }
+}
+    
