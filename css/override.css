@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #c4c4c4;
+    --dark : #2f2f2f;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.logo {
+    width: 10vw;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+input {
+    background-color: var(--dark);
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.missions {
+    margin: 2vh 2vw 0 2vw;
+}
+
+.card {
+    width: 75vw;
+}
