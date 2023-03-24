@@ -20,7 +20,7 @@ foreach ($missions as $mission) { ?>
           </div>
         </div>
         <div class="btn">
-                <button type="button" class="btn btn-outline-dark"><a href="show_mission.php">Détails</a></button>
+                <button type="button" class="btn btn-outline-dark"><a href="show_mission.php?id=<?= $mission->getId()?>">Détails</a></button>
         </div>
     </div>
 <?php }; 

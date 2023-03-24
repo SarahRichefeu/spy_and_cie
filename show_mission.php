@@ -8,7 +8,7 @@ require_once "Controller\CountryController.php";
 require_once "Controller\StatusController.php";
 
 $missionController = new MissionController();
-$mission = $missionController->get(2);
+$mission = $missionController->get($_GET['id']);
 
 $countryController = new CountryController();
 $country = $countryController->get($mission->getCountry_id())->getName();
