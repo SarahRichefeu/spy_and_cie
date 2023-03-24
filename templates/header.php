@@ -11,9 +11,25 @@
     <title>Spy&Cie</title>
 </head>
 <body>
+
+    <div class="container-fluid">
+        <header class="d-flex flex-wrap align-items-center justify-content-between justify-content-sm-between py-3 mb-4 border-bottom">
+          <div class="col-md-3 mb-2 mb-md-0">
+            <a href="index.php" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <img src="assets\logo.png" alt="logo" class="logo">
+            </a>
+          </div>
         <?php
         // if admin is connected 
             require_once 'templates\nav_admin.php';
         ?>
-
+      <div class="login col-md-3 text-end">
+        <button type="button" class="btn btn-light me-4">
+            <a href="login.php">Log In</a>
+            <!-- if admin is connected -> 
+            <a href="logout.php">Log Out</a> --> 
+        </button>
+      </div>
+    </header>
+  </div>
 
