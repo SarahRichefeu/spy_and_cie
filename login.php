@@ -6,7 +6,7 @@ require_once 'templates\header.php';
 
 <h2>Se connecter</h2>
 
-<form class="container-fluid w-50">
+<form class="container-fluid w-50 flex-grow-1">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control bg-secondary" id="exampleInputEmail1" aria-describedby="emailHelp">

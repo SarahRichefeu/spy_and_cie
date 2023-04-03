@@ -5,8 +5,15 @@
     --dark : #2f2f2f;
 }
 
+html {
+    height: 100%;
+}
+
 body {
+    min-height: 100%;
     font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
@@ -32,9 +39,9 @@ h2 {
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
+    flex-shrink: 0;
 }
+
 
 .missions {
     margin: 2vh 2vw 0 2vw;
