@@ -9,7 +9,7 @@ class Agent
     private string $birthdate;
     private string $code_name;
     private string $nationality_id;
-    private ?string $mission_id;
+    private ?string $mission_id = null;
 
     //Constructor
     public function __construct(array $data)
@@ -110,7 +110,7 @@ class Agent
     }
 
 
-    public function getMission_id(): string
+    public function getMission_id(): ?string
     {
         return $this->mission_id;
     }

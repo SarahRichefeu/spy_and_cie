@@ -17,14 +17,14 @@ class Mission
 
 
     //Constructor
-    public function __construct(array $data)
+    public function __construct( $data)
     {
         $this->hydrate($data);
     }
 
     //Methods
 
-    public function hydrate(array $data) 
+    public function hydrate( $data) 
     {
         foreach ($data as $key => $value) {
             $method = 'set'.ucfirst($key);

@@ -11,7 +11,7 @@ require_once "../header-admin.php";
       <input type="text" class="form-control" id="firstname">
     </div>
     <div class="mb-3">
-        <h5>Agent.s concernés: </h5>
+        <h5>Agent.s concerné.s: </h5>
         <!-- faire une boucle -->
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">

@@ -42,7 +42,7 @@ class MissionController extends Mission
         return $missions;
     }
 
-    public function get(int $id): Mission 
+    public function get(?int $id): Mission 
     {
         $req = $this->pdo->prepare("SELECT * FROM mission WHERE id = :id");
         $req->execute(['id' => $id]);
