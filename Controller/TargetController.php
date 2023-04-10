@@ -51,12 +51,20 @@ class TargetController extends Target
         return $target;
     }
 
-/*
-    public function create(Mission $mission): bool
+
+    public function create(Target $target): void
     {
-
+        $req = $this->pdo->prepare('INSERT INTO target (lastname, firstname, birthdate, code_name, nationality_id, mission_id) VALUES (:lastname, :firstname, :birthdate, :code_name, :nationality_id, :mission_id)');
+        $req->execute([
+            'lastname' => $target->getLastname(),
+            'firstname' => $target->getFirstname(),
+            'birthdate' => $target->getBirthdate(),
+            'code_name' => $target->getCode_name(),
+            'nationality_id' => $target->getNationality_id(),
+            'mission_id' => $target->getMission_id()
+        ]);
     }
-
+/*
     public function update(Mission $mission): bool
     {
 

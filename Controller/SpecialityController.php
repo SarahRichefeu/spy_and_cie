@@ -45,12 +45,16 @@ class SpecialityController
         $speciality = new Speciality($data);
         return $speciality;
     }
-/*
-    public function create(Mission $mission): bool
-    {
 
+    public function create(Speciality $speciality): void
+    {   
+        $req = $this->pdo->prepare("INSERT INTO speciality (name, agent_id) VALUES (:name, :agent_id)");
+        $req->execute([
+            'name' => $speciality->getName(),
+            'agent_id' => $speciality->getAgent_id()
+        ]);
     }
-
+/*
     public function update(Mission $mission): bool
     {
 

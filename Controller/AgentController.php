@@ -51,12 +51,20 @@ class AgentController extends Agent
         return $agent;
     }
 
-/*
-    public function create(Mission $mission): bool
+
+    public function create(Agent $agent): void
     {
-
+        $req = $this->pdo->prepare('INSERT INTO agent (lastname, firstname, birthdate, code_name, nationality_id, mission_id) VALUES (:lastname, :firstname, :birthdate, :code_name, :nationality_id, :mission_id)');
+        $req->execute([
+            'lastname' => $agent->getLastname(),
+            'firstname' => $agent->getFirstname(),
+            'birthdate' => $agent->getBirthdate(),
+            'code_name' => $agent->getCode_name(),
+            'nationality_id' => $agent->getNationality_id(),
+            'mission_id' => $agent->getMission_id()
+        ]);
     }
-
+/*
     public function update(Mission $mission): bool
     {
 

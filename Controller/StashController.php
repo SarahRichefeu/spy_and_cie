@@ -51,12 +51,18 @@ class StashController extends Stash
         return $stash;
     }
 
-/*
-    public function create(Mission $mission): bool
+
+    public function create(Stash $stash): void
     {
-
+        $req = $this->pdo->prepare('INSERT INTO stash (adress, type, country_id, mission_id) VALUES (:adress, :type, :country_id, :mission_id)');
+        $req->execute([
+            'adress' => $stash->getAdress(),
+            'type' => $stash->getType(),
+            'country_id' => $stash->getCountry_id(),
+            'mission_id' => $stash->getMission_id(),
+        ]);
     }
-
+/*
     public function update(Mission $mission): bool
     {
 
