@@ -2,8 +2,8 @@
 
 require_once "../header-admin.php";
 
-$agentController = new AgentController();
-$agent = $agentController->get($_GET['id']);
+$targetController = new TargetController();
+$target = $targetController->get($_GET['id']);
 
 $specialityController = new SpecialityController();
 $specialities = $specialityController->getAll();
@@ -21,41 +21,41 @@ $missions = $missionController->getAll();
         <input type="submit" class="btn btn-danger" value="Supprimer">
 </form> 
 
-<form action="../../form/update/agent-form.php" class="form-group container flex-grow-1" method="POST">
-    <h3 class="text-center">Modifier un agent</h3>
+<form action="../../form/update/target-form.php" class="form-group container flex-grow-1" method="POST">
+    <h3 class="text-center">Modifier une cible</h3>
     <div class="mb-3">
       <label for="id" class="col-form-label">Identifiant: </label>
-      <input type="text" class="form-control" id="id" name="id" value="<?= $agent->getId()?>" readonly>
+      <input type="text" class="form-control" id="id" name="id" value="<?= $target->getId()?>" readonly>
       <small id="emailHelp" class="form-text text-muted">L'identifiant doit rester unique, vous ne pouvez pas le changer.</small>
+    </div>
     </div>
     <div class="mb-3">
       <label for="lastname" class="col-form-label">Nom: </label>
-      <input type="text" class="form-control" id="lastname" name="lastname" value="<?= $agent->getLastname()?>">
+      <input type="text" class="form-control" id="lastname" name="lastname" value="<?= $target->getLastname()?>">
     </div>
     <div class="mb-3">
       <label for="firstname" class="col-form-label">Prénom: </label>
-      <input type="text" class="form-control" id="firstname" name="firstname" value="<?= $agent->getFirstname()?>">
+      <input type="text" class="form-control" id="firstname" name="firstname" value="<?= $target->getFirstname()?>">
     </div>
     <div class="mb-3">
       <label for="birthdate" class="col-form-label">Date de naissance: </label>
-      <input type="date" class="form-control" id="birthdate" name="birthdate" value="<?= $agent->getBirthdate()?>">
+      <input type="date" class="form-control" id="birthdate" name="birthdate" value="<?= $target->getBirthdate()?>">
     </div>
     <div class="mb-3">
-      <label for="agentCodeName" class="col-form-label">Nom de code</label>
-      <input type="text" class="form-control" id="agentCodeName" name="code_name" value="<?= $agent->getCode_name()?>">
+      <label for="targetCodeName" class="col-form-label">Nom de code</label>
+      <input type="text" class="form-control" id="targetCodeName" name="code_name" value="<?= $target->getCode_name()?>">
     </div>
     <div class="mb-3">
       <label for="country" class="col-form-label">Lieu de naissance: </label>
-      <input type="text" name="nationality" id="nationality" class="form-control" value="<?= $agent->getNationality()?>">
+      <input type="text" name="nationality" id="nationality" class="form-control" value="<?= $target->getNationality()?>">
     </div>
     <div class="mb-3">
-        <h5>Missions: </h5>
-        <p class="text-muted">Un agent ne peut être actif seulement sur une seule mission à la fois.</p>
+        <h5>Mission: </h5>
         <?php  foreach ($missions as $mission) : ?>
           <div class="form-check">
             <input class="form-check-input" type="radio" id="flexCheckDefault" name="mission_id" value="<?= $mission->getId()?>"
             <?php 
-                if($mission->getId() == $agent->getMission_id()){
+                if($mission->getId() == $target->getMission_id()){
                     echo "checked";
                 }
             ?>

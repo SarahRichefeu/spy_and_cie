@@ -54,20 +54,27 @@ class StashController extends Stash
 
     public function create(Stash $stash): void
     {
-        $req = $this->pdo->prepare('INSERT INTO stash (adress, type, country_id, mission_id) VALUES (:adress, :type, :country_id, :mission_id)');
+        $req = $this->pdo->prepare('INSERT INTO stash (adress, type, country, mission_id) VALUES (:adress, :type, :country, :mission_id)');
         $req->execute([
             'adress' => $stash->getAdress(),
             'type' => $stash->getType(),
-            'country_id' => $stash->getCountry_id(),
+            'country' => $stash->getCountry(),
+            'mission_id' => $stash->getMission_id(),
+        ]);
+    }
+
+    public function update(Stash $stash): void
+    {
+        $req = $this->pdo->prepare('UPDATE stash SET id = :id, adress = :adress, type = :type, country = :country, mission_id = :mission_id WHERE id = :id');
+        $req->execute([
+            'id' => $stash->getId(),
+            'adress' => $stash->getAdress(),
+            'type' => $stash->getType(),
+            'country' => $stash->getCountry(),
             'mission_id' => $stash->getMission_id(),
         ]);
     }
 /*
-    public function update(Mission $mission): bool
-    {
-
-    }
-
     public function delete(Mission $mission): bool 
     {
 

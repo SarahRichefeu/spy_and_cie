@@ -2,15 +2,13 @@
 
 require_once "../header-admin.php";
 
-$countryController = new CountryController();
-$countries = $countryController->getAll();
 
 
 $missionController = new MissionController();
 $missions = $missionController->getAll();
 ?>
 
-  <form action="../../form/stash-form.php" class="form-group container flex-grow-1" method="POST">
+  <form action="../../form/add/stash-form.php" class="form-group container flex-grow-1" method="POST">
     <h3 class="text-center">Ajouter une planque</h3>    
     <div class="mb-3">
       <label for="adress" class="col-form-label">Adresse:  </label>
@@ -22,12 +20,7 @@ $missions = $missionController->getAll();
     </div>
     <div class="mb-3">
       <label for="country" class="col-form-label">Lieu: </label>
-      <select class="form-select" aria-label="Default select example" name="country_id">
-        <option selected>Sélectionnez un lieu</option>
-        <?php foreach($countries as $country) : ?>
-          <option value="<?= $country->getId() ?>"><?= $country->getName() ?></option>
-        <?php endforeach; ?>
-      </select>
+      <input type="text" name="country" id="country" class="form-control">
     </div>
     <div class="mb-3">
         <h5>Missions: </h5>

@@ -2,16 +2,13 @@
 
 require_once "../header-admin.php";
 
-$countryController = new CountryController();
-$countries = $countryController->getAll();
-
 $missionController = new MissionController();
 $missions = $missionController->getAll();
 
 
 ?>
 
-  <form action="../../form/target-form.php" class="form-group container flex-grow-1" method="POST">
+  <form action="../../form/add/target-form.php" class="form-group container flex-grow-1" method="POST">
     <h3 class="text-center">Ajouter une cible</h3>
     <div class="mb-3">
       <label for="lastname" class="col-form-label">Nom: </label>
@@ -31,12 +28,7 @@ $missions = $missionController->getAll();
     </div>
     <div class="mb-3">
       <label for="country" class="col-form-label">Lieu de naissance: </label>
-      <select class="form-select" aria-label="Default select example" name="nationality_id">
-        <option selected>Sélectionnez un lieu</option>
-        <?php foreach($countries as $country) : ?>
-          <option value="<?= $country->getId() ?>"><?= $country->getName() ?></option>
-        <?php endforeach; ?>
-      </select>
+      <input type="text" name="nationality" id="nationality" class="form-control">
     </div>
     <div class="mb-3">
         <h5>Missions: </h5>

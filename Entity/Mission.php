@@ -11,9 +11,9 @@ class Mission
     private string $start_date;
     private string $end_date;
     private string $speciality;
-    private string $country_id;
-    private string $mission_status_id;
-    private string $mission_type_id; 
+    private string $country;
+    private int $mission_status_id;
+    private int $mission_type_id; 
 
 
     //Constructor
@@ -129,19 +129,15 @@ class Mission
         return $this;
     }
 
-    public function getCountry_id(): string
+    public function getCountry(): string
     {
-        /*$req = $pdo->prepare("SELECT name FROM spy_and_cie.country WHERE id = :id");
-        $req->execute(['id' => $id]);
-        $country_id = $req->fetch();
-        $this->country_id = $country_id['name'];*/
-        return $this->country_id;
+        return $this->country;
     }
 
 
-    public function setCountry_id(int $country_id): self
+    public function setCountry(string $country): self
     {
-        $this->country_id = $country_id;
+        $this->country = $country;
 
         return $this;
     }

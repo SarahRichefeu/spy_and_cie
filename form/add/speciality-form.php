@@ -3,9 +3,9 @@
 function loadClass(string $class)
 {
     if (str_contains($class, "Controller")) {
-        require_once "../Controller/$class.php";
+        require_once "../../Controller/$class.php";
     } else {
-        require_once "../Entity/$class.php";
+        require_once "../../Entity/$class.php";
     }
 }
 
@@ -17,4 +17,4 @@ $specialityController = new SpecialityController();
 $newSpeciality = new Speciality($_POST);
 $specialityController->create($newSpeciality);
 
-var_dump($newSpeciality);
+header("Location: ../../templates/view/specialities.php");

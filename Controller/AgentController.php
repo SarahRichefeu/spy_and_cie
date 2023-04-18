@@ -54,22 +54,31 @@ class AgentController extends Agent
 
     public function create(Agent $agent): void
     {
-        $req = $this->pdo->prepare('INSERT INTO agent (lastname, firstname, birthdate, code_name, nationality_id, mission_id) VALUES (:lastname, :firstname, :birthdate, :code_name, :nationality_id, :mission_id)');
+        $req = $this->pdo->prepare('INSERT INTO agent (lastname, firstname, birthdate, code_name, nationality, mission_id) VALUES (:lastname, :firstname, :birthdate, :code_name, :nationality, :mission_id)');
         $req->execute([
             'lastname' => $agent->getLastname(),
             'firstname' => $agent->getFirstname(),
             'birthdate' => $agent->getBirthdate(),
             'code_name' => $agent->getCode_name(),
-            'nationality_id' => $agent->getNationality_id(),
+            'nationality' => $agent->getNationality(),
+            'mission_id' => $agent->getMission_id()
+        ]);
+    }
+
+    public function update(Agent $agent): void
+    {
+        $req = $this->pdo->prepare("UPDATE agent SET id = :id, lastname = :lastname, firstname = :firstname, birthdate = :birthdate, code_name = :code_name, nationality = :nationality, mission_id = :mission_id WHERE id = :id");
+        $req->execute([
+            'id' => $agent->getId(),
+            'lastname' => $agent->getLastname(),
+            'firstname' => $agent->getFirstname(),
+            'birthdate' => $agent->getBirthdate(),
+            'code_name' => $agent->getCode_name(),
+            'nationality' => $agent->getNationality(),
             'mission_id' => $agent->getMission_id()
         ]);
     }
 /*
-    public function update(Mission $mission): bool
-    {
-
-    }
-
     public function delete(Mission $mission): bool 
     {
 

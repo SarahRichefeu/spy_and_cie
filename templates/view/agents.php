@@ -6,8 +6,6 @@ require_once "../header-admin.php";
 $agentController = new AgentController();
 $agents = $agentController->getAll();
 
-$countryController = new CountryController();
-
 $missionController = new MissionController();
 
 $specialityController = new SpecialityController();
@@ -24,7 +22,7 @@ foreach ($agents as $agent) { ?>
             <h4 class="card-title"><?= $agent->getFirstname().' '.$agent->getLastname(); ?></h4>
             <h6 class="card-subtitle mb-2 text-muted">Nom de code: <?= $agent->getCode_name(); ?></h6>
             <p class="card-text">Date de naissance: <?= $agent->getBirthdate(); ?></p>
-            <p class="card-text">Pays de naissance: <?= $countryController->get($agent->getNationality_id())->getName(); ?></p>
+            <p class="card-text">Pays de naissance: <?= $agent->getNationality(); ?></p>
             <p class="card-text">Spécialité.s : <?php
             foreach ($specialities as $speciality) {
               if ($speciality->getAgent_id() === $agent->getId()) {

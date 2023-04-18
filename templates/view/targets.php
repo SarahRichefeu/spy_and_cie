@@ -7,8 +7,6 @@ require_once "../header-admin.php";
 $targetController = new TargetController();
 $targets = $targetController->getAll();
 
-$countryController = new CountryController();
-
 $missionController = new MissionController();
 
 $specialityController = new SpecialityController();
@@ -25,7 +23,7 @@ foreach ($targets as $target) { ?>
             <h4 class="card-title"><?= $target->getFirstname().' '.$target->getLastname(); ?></h4>
             <h6 class="card-subtitle mb-2 text-muted">Nom de code: <?= $target->getCode_name(); ?></h6>
             <p class="card-text">Date de naissance: <?= $target->getBirthdate(); ?></p>
-            <p class="card-text">Pays de naissance: <?= $countryController->get($target->getNationality_id())->getName(); ?></p>
+            <p class="card-text">Pays de naissance: <?= $target->getNationality() ?></p>
             <p class="card-text">Mission.s: <?php
             if ($target->getMission_id() === null) {
               echo 'Pas de mission en cours';
@@ -36,7 +34,7 @@ foreach ($targets as $target) { ?>
         </div>
         <div class="btn">
           <!-- if connected -->
-          <button type="button" class="btn btn-outline-dark"><a href="../update/agent.php?id=<?= $target->getId()?>">Modifier</a></button>
+          <button type="button" class="btn btn-outline-dark"><a href="../update/target.php?id=<?= $target->getId()?>">Modifier</a></button>
         </div>
     </div>
 <?php }; ?>

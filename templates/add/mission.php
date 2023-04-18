@@ -8,16 +8,13 @@ $specialities = $specialityController->getAll();
 $statusController = new StatusController();
 $states = $statusController->getAll();
 
-$countryController = new CountryController();
-$countries = $countryController->getAll();
-
 $typeController = new MissionTypeController();
 $types = $typeController->getAll();
 
 
 ?>
 
-  <form action="../../form/mission-form.php" class="form-group container flex-grow-1" method="post">
+  <form action="../../form/add/mission-form.php" class="form-group container flex-grow-1" method="post">
     <h3 class="text-center">Ajouter une mission</h3>
     <div class="mb-3">
       <label for="missionTitle" class="col-form-label">Nom de la mission</label>
@@ -50,12 +47,7 @@ $types = $typeController->getAll();
     </div>
     <div class="mb-3">
       <label for="country" class="col-form-label">Lieu</label>
-      <select class="form-select" aria-label="Default select example" name="country_id">
-        <option selected>Sélectionnez un lieu</option>
-        <?php foreach($countries as $country) : ?>
-          <option value="<?= $country->getId() ?>"><?= $country->getName() ?></option>
-        <?php endforeach; ?>
-      </select>
+      <input type="text" name="country" id="country" class="form-control">
     </div>
     <div class="mb-3">
       <label for="missionType" class="col-form-label">Type</label>

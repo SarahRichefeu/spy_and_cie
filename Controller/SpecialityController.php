@@ -54,12 +54,18 @@ class SpecialityController
             'agent_id' => $speciality->getAgent_id()
         ]);
     }
-/*
-    public function update(Mission $mission): bool
+
+    public function update(Speciality $speciality): void
     {
-
+        $req = $this->pdo->prepare("UPDATE speciality SET id = :id, name = :name, agent_id = :agent_id WHERE id = :id");
+        $req->execute([
+            'id' => $speciality->getId(),
+            'name' => $speciality->getName(),
+            'agent_id' => $speciality->getAgent_id()
+            
+        ]);
     }
-
+/*
     public function delete(Mission $mission): bool 
     {
 

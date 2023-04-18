@@ -3,9 +3,9 @@
 function loadClass(string $class)
 {
     if (str_contains($class, "Controller")) {
-        require_once "../Controller/$class.php";
+        require_once "../../Controller/$class.php";
     } else {
-        require_once "../Entity/$class.php";
+        require_once "../../Entity/$class.php";
     }
 }
 
@@ -17,4 +17,4 @@ $stashController = new stashController();
 $newStash = new Stash($_POST);
 $stashController->create($newStash);
 
-var_dump($newStash);
+header("Location: ../../templates/view/stashs.php");

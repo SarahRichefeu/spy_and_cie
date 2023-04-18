@@ -12,10 +12,10 @@ $agents = $agentController->getAll();
 
 ?>
 
-<div class="flex-grow-1 row ms-3">
+<div class="flex-grow-1 row ms-3 justify-content-center">
 <?php
 foreach ($specialities as $speciality) { ?>
-    <div class="card border-secondary m-3 col-sm-6 " style="max-width: 20rem;">
+    <div class="card border-secondary m-3 col-sm-6 " style="max-width: 30rem;">
       <div class="card-header">Spécialité</div>
       <div class="card-body">
         <h4 class="card-title"><?= $speciality->getName(); ?></h4>
@@ -34,6 +34,7 @@ foreach ($specialities as $speciality) { ?>
     </div>
 <?php }; ?>
 </div>
+
  
 <?php
 require_once "../footer-admin.php";        

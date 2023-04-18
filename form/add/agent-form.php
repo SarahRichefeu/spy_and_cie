@@ -3,9 +3,9 @@
 function loadClass(string $class)
 {
     if (str_contains($class, "Controller")) {
-        require_once "../Controller/$class.php";
+        require_once "../../Controller/$class.php";
     } else {
-        require_once "../Entity/$class.php";
+        require_once "../../Entity/$class.php";
     }
 }
 
@@ -18,3 +18,5 @@ $newAgent = new Agent($_POST);
 $agentController->create($newAgent);
 
 var_dump($newAgent);
+
+header("Location: ../../templates/view/agents.php");  

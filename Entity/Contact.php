@@ -110,7 +110,7 @@ class Contact
     }
 
 
-    public function getMission_id(): string
+    public function getMission_id(): ?string
     {
         return $this->mission_id;
     }

@@ -5,7 +5,7 @@ class Stash
     private int $id;
     private string $adress;
     private string $type;
-    private int $country_id;
+    private string $country;
     private int $mission_id;
 
     public function __construct(array $data)
@@ -66,15 +66,15 @@ class Stash
     }
 
 
-    public function getCountry_id(): int
+    public function getCountry(): string
     {
-        return $this->country_id;
+        return $this->country;
     }
 
 
-    public function setCountry_id(int $country_id): self
+    public function setCountry(string $country): self
     {
-        $this->country_id = $country_id;
+        $this->country = $country;
 
         return $this;
     }

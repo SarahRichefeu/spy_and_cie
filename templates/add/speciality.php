@@ -7,7 +7,7 @@ $agents = $agentController->getAll();
 
 ?>
 
-  <form action="../../form/speciality-form.php" method="POST" class="form-group container flex-grow-1">
+  <form action="../../form/add/speciality-form.php" method="POST" class="form-group container flex-grow-1">
     <h3 class="text-center">Ajouter une spécialité</h3>
     <p>Une spécialité doit être détenue par un seul agent à la fois. Nous voulons des agents spéciaux et uniques. Bien évidemment, un agent peut avoir plusieurs spécialités.</p>
     <div class="mb-3">

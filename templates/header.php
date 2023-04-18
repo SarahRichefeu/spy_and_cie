@@ -24,7 +24,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Missions</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Voir</a>
+                        <a class="dropdown-item" href="index.php">Voir</a>
                         <a class="dropdown-item" href="templates/add/mission.php">Ajouter</a>
                     </div>
                     </li>
