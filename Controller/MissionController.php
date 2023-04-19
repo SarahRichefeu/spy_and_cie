@@ -85,11 +85,15 @@ class MissionController extends Mission
         ]);
     }
 
- /*
-    public function delete(Mission $mission): bool 
+    public function delete(int $id): void 
     {
 
+        $req = $this->pdo->prepare("DELETE FROM mission WHERE mission.id = :id");
+        $req->execute(['id' => $id]);
+        if ($req->rowCount() === 0) {
+            throw new Exception("");
+        }
     }
-*/
+
 
 }

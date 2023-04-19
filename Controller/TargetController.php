@@ -78,11 +78,12 @@ class TargetController extends Target
             'mission_id' => $target->getMission_id()
         ]);
     }
-/*
-    public function delete(Mission $mission): bool 
-    {
 
+    public function delete(int $id): void 
+    {
+        $req = $this->pdo->prepare("DELETE FROM target WHERE id = :id");
+        $req->execute(['id' => $id]);
     }
-*/
+
 
 }

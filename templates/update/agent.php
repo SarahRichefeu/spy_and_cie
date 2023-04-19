@@ -17,9 +17,11 @@ $missions = $missionController->getAll();
 ?>
 
 
-<form action="" class=" delete d-flex justify-content-end">
-        <input type="submit" class="btn btn-danger" value="Supprimer">
-</form> 
+<div class="delete d-flex justify-content-end">
+    <button class="btn btn-danger">
+      <a href="../../form/delete/agent-form.php?id=<?= $agent->getId()?>">Supprimer l'agent n° <?= $agent->getId()?></a>
+    </button>
+</div>
 
 <form action="../../form/update/agent-form.php" class="form-group container flex-grow-1" method="POST">
     <h3 class="text-center">Modifier un agent</h3>

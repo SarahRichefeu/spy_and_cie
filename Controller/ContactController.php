@@ -78,16 +78,12 @@ class ContactController extends Contact
             'mission_id' => $contact->getMission_id()
         ]);
     }
-/*
-    public function update(Mission $mission): bool
-    {
 
+    public function delete(int $id): void 
+    {
+        $req = $this->pdo->prepare("DELETE FROM contact WHERE id = :id");
+        $req->execute(['id' => $id]);
     }
 
-    public function delete(Mission $mission): bool 
-    {
-
-    }
-*/
 
 }

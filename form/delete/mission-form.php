@@ -9,13 +9,13 @@ function loadClass(string $class)
     }
 }
 
-
-
 spl_autoload_register("loadClass");
 
-$missionController = new MissionController();
-$newMission = new Mission($_POST);
-$missionController->create($newMission);
+try {
+    $missionController = new MissionController();
+    $missionController->delete($_GET["id"]);
+    header("Location: ../../index.php");
+} catch (Exception $e) {
+    echo "La mission n'a pas pu être supprimée.";
+}
 
-
-header("Location: ../../index.php");

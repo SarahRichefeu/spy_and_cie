@@ -29,7 +29,7 @@
                     </div>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">contacts</a>
+                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Agents</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="templates/view/agents.php">Voir</a>
                         <a class="dropdown-item" href="templates/add/agent.php">Ajouter</a>

@@ -10,9 +10,11 @@ $agents = $agentController->getAll();
 
 ?>
 
-<form action="" class=" delete d-flex justify-content-end">
-        <input type="submit" class="btn btn-danger" value="Supprimer">
-</form>
+<div class="delete d-flex justify-content-end">
+    <button class="btn btn-danger">
+      <a href="../../form/delete/speciality-form.php?id=<?= $speciality->getId()?>">Supprimer la specialité n° <?= $speciality->getId()?></a>
+    </button>
+</div>
 
   <form action="../../form/update/speciality-form.php" method="POST" class="form-group container flex-grow-1">
     <h3 class="text-center">Modifier une spécialité</h3>

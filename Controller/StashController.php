@@ -74,11 +74,12 @@ class StashController extends Stash
             'mission_id' => $stash->getMission_id(),
         ]);
     }
-/*
-    public function delete(Mission $mission): bool 
-    {
 
+    public function delete(int $id): void 
+    {
+        $req = $this->pdo->prepare("DELETE FROM stash WHERE id = :id");
+        $req->execute(['id' => $id]);
     }
-*/
+
 
 }

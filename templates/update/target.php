@@ -17,9 +17,11 @@ $missions = $missionController->getAll();
 ?>
 
 
-<form action="" class=" delete d-flex justify-content-end">
-        <input type="submit" class="btn btn-danger" value="Supprimer">
-</form> 
+<div class="delete d-flex justify-content-end">
+    <button class="btn btn-danger">
+      <a href="../../form/delete/target-form.php?id=<?= $target->getId()?>">Supprimer la cible n° <?= $target->getId()?></a>
+    </button>
+</div>
 
 <form action="../../form/update/target-form.php" class="form-group container flex-grow-1" method="POST">
     <h3 class="text-center">Modifier une cible</h3>

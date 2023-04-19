@@ -78,11 +78,12 @@ class AgentController extends Agent
             'mission_id' => $agent->getMission_id()
         ]);
     }
-/*
-    public function delete(Mission $mission): bool 
-    {
 
+    public function delete(int $id): void 
+    {
+        $req = $this->pdo->prepare("DELETE FROM agent WHERE id = :id");
+        $req->execute(['id' => $id]);
     }
-*/
+
 
 }

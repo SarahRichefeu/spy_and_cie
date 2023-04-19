@@ -9,13 +9,12 @@ function loadClass(string $class)
     }
 }
 
-
-
 spl_autoload_register("loadClass");
 
-$missionController = new MissionController();
-$newMission = new Mission($_POST);
-$missionController->create($newMission);
-
-
-header("Location: ../../index.php");
+try {
+    $stashController = new StashController();
+    $stashController->delete($_GET["id"]);
+    header("Location: ../../templates/view/stashs.php");
+} catch (Exception $e) {
+    echo "La planque n'a pas pu être supprimée.";
+}

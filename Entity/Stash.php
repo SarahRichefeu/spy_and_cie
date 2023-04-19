@@ -6,7 +6,7 @@ class Stash
     private string $adress;
     private string $type;
     private string $country;
-    private int $mission_id;
+    private ?int $mission_id = null;
 
     public function __construct(array $data)
     {
@@ -80,13 +80,13 @@ class Stash
     }
 
 
-    public function getMission_id(): int
+    public function getMission_id(): ?int
     {
         return $this->mission_id;
     }
 
 
-    public function setMission_id(int $mission_id): self
+    public function setMission_id(?int $mission_id): self
     {
         $this->mission_id = $mission_id;
 

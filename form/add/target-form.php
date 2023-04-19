@@ -11,7 +11,6 @@ function loadClass(string $class)
 
 spl_autoload_register("loadClass");
 
-var_dump($_POST);
 
 $targetController = new TargetController();
 $newTarget = new Target($_POST);

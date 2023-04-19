@@ -19,9 +19,11 @@ $type = $typeController->get($mission->getMission_type_id());
 
 ?>
 
-   <form action="../../form/delete/mission.php" class=" delete d-flex justify-content-end">
-        <input type="submit" class="btn btn-danger" value="Supprimer">
-   </form> 
+   <div class="delete d-flex justify-content-end">
+    <button class="btn btn-danger">
+      <a href="../../form/delete/mission-form.php?id=<?= $mission->getId()?>">Supprimer la mission n° <?= $mission->getId()?></a>
+    </button>
+   </div>
 
   <form action="../../form/update/mission-form.php" class="form-group container flex-grow-1" method="post">
     <h3 class="text-center">Modifier une mission</h3>

@@ -9,13 +9,12 @@ function loadClass(string $class)
     }
 }
 
-
-
 spl_autoload_register("loadClass");
 
-$missionController = new MissionController();
-$newMission = new Mission($_POST);
-$missionController->create($newMission);
-
-
-header("Location: ../../index.php");
+try {
+    $contactController = new ContactController();
+    $contactController->delete($_GET["id"]);
+    header("Location: ../../templates/view/contacts.php");
+} catch (Exception $e) {
+    echo "Le contact n'a pas pu être supprimé.";
+}
