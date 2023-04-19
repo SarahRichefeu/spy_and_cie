@@ -45,20 +45,4 @@ class StatusController
         $status = new Status($data);
         return $status;
     }
-/*
-    public function create(Mission $mission): bool
-    {
-
-    }
-
-    public function update(Mission $mission): bool
-    {
-
-    }
-
-    public function delete(Mission $mission): bool 
-    {
-
-    }
-*/
 }

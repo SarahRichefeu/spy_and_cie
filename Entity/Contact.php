@@ -8,7 +8,7 @@ class Contact
     private string $firstname;
     private string $birthdate;
     private string $code_name;
-    private string $nationality_id;
+    private string $nationality;
     private ?string $mission_id;
 
     //Constructor
@@ -97,14 +97,14 @@ class Contact
     }
    
    
-    public function getNationality_id(): int
+    public function getNationality(): string
     {
-        return $this->nationality_id;
+        return $this->nationality;
     }
         
-    public function setNationality_id(string $nationality_id): self
+    public function setNationality(string $nationality): self
     {
-        $this->nationality_id = $nationality_id;
+        $this->nationality = $nationality;
 
         return $this;
     }

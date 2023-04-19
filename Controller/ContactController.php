@@ -51,12 +51,34 @@ class ContactController extends Contact
         return $contact;
     }
 
-/*
-    public function create(Mission $mission): bool
+    public function create(Contact $contact): void
     {
-
+        $req = $this->pdo->prepare('INSERT INTO contact (lastname, firstname, code_name, birthdate, nationality, mission_id) VALUES (:lastname, :firstname, :code_name, :birthdate, :nationality, :mission_id)');
+        $req->execute([
+            'lastname' => $contact->getLastname(),
+            'firstname' => $contact->getFirstname(),
+            'code_name' => $contact->getCode_name(),
+            'birthdate' => $contact->getBirthdate(),
+            'nationality' => $contact->getNationality(),
+            'mission_id' => $contact->getMission_id()
+        ]);
     }
 
+
+    public function update(Contact $contact): void
+    {   
+        $req = $this->pdo->prepare("UPDATE contact SET id = :id, lastname = :lastname, firstname = :firstname, code_name = :code_name, birthdate = :birthdate, nationality = :nationality, mission_id = :mission_id WHERE id = :id");
+        $req->execute([
+            'id' => $contact->getId(),
+            'lastname' => $contact->getLastname(),
+            'firstname' => $contact->getFirstname(),
+            'code_name' => $contact->getCode_name(),
+            'birthdate' => $contact->getBirthdate(),
+            'nationality' => $contact->getNationality(),
+            'mission_id' => $contact->getMission_id()
+        ]);
+    }
+/*
     public function update(Mission $mission): bool
     {
 

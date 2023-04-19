@@ -45,20 +45,5 @@ class MissionTypeController
         $missionType = new MissionType($data);
         return $missionType;
     }
-/*
-    public function create(Mission $mission): bool
-    {
 
-    }
-
-    public function update(Mission $mission): bool
-    {
-
-    }
-
-    public function delete(Mission $mission): bool 
-    {
-
-    }
-*/
 }

@@ -29,10 +29,17 @@
                     </div>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Agents</a>
+                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">contacts</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="templates/view/agents.php">Voir</a>
                         <a class="dropdown-item" href="templates/add/agent.php">Ajouter</a>
+                    </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contacts</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="templates/view/contacts.php">Voir</a>
+                        <a class="dropdown-item" href="templates/add/contact.php">Ajouter</a>
                     </div>
                     </li>
                     <li class="nav-item dropdown">
