@@ -16,4 +16,4 @@ $targetController = new TargetController();
 $newTarget = new Target($_POST);
 $targetController->create($newTarget);
 
-header("Location: ../../templates/view/targets.php");
+echo "<script>window.location= '../../templates/view/targets.php'</script>"; 

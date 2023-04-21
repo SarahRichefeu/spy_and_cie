@@ -15,4 +15,4 @@ $agentController = new AgentController();
 $updatedAgent = new Agent($_POST);
 $agentController->update($updatedAgent);
 
-header("Location: ../../templates/view/agents.php");
+echo "<script>window.location= '../../templates/view/agents.php'</script>"; 

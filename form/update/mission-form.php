@@ -15,4 +15,4 @@ $missionController = new MissionController();
 $updatedMission = new Mission($_POST);
 $missionController->update($updatedMission);
 
-header("Location: ../../index.php");
+echo "<script>window.location= '../../index.php'</script>"; 

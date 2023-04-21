@@ -63,6 +63,8 @@ $types = $typeController->getAll();
     </div>
   </form>
 
+  
+
 <?php
 
 require_once "../footer-admin.php";

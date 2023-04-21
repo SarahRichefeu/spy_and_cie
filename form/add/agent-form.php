@@ -18,5 +18,5 @@ $newAgent = new Agent($_POST);
 $agentController->create($newAgent);
 
 var_dump($newAgent);
-
-header("Location: ../../templates/view/agents.php");  
+ 
+echo "<script>window.location= '../../templates/view/agents.php'</script>"; 

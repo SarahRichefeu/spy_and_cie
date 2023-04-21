@@ -15,4 +15,4 @@ $specialityController = new SpecialityController();
 $updatedSpeciality = new Speciality($_POST);
 $specialityController->update($updatedSpeciality);
 
-header("Location: ../../templates/view/specialities.php");
+echo "<script>window.location= '../../templates/view/specialities.php'</script>"; 

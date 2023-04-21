@@ -14,7 +14,7 @@ spl_autoload_register("loadClass");
 try {
     $stashController = new StashController();
     $stashController->delete($_GET["id"]);
-    header("Location: ../../templates/view/stashs.php");
+    echo "<script>window.location= '../../templates/view/stashs.php'</script>"; 
 } catch (Exception $e) {
     echo "La planque n'a pas pu être supprimée.";
 }

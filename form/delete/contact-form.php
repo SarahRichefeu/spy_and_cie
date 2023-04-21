@@ -14,7 +14,7 @@ spl_autoload_register("loadClass");
 try {
     $contactController = new ContactController();
     $contactController->delete($_GET["id"]);
-    header("Location: ../../templates/view/contacts.php");
+    echo "<script>window.location= '../../templates/view/contacts.php'</script>"; 
 } catch (Exception $e) {
     echo "Le contact n'a pas pu être supprimé.";
 }

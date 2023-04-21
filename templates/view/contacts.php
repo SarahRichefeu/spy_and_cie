@@ -12,13 +12,14 @@ $missionController = new MissionController();
 
 <div class="flex-grow-1 w-65">
 <?php
-foreach ($contacts as $contact) { ?>
+foreach ($contacts as $contact) { 
+  $birthdate = new DateTime($contact->getBirthdate());?>
    <div class="missions d-lg-flex justify-content-between align-items-center">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title"><?= $contact->getFirstname().' '.$contact->getLastname(); ?></h4>
             <h6 class="card-subtitle mb-2 text-muted">Nom de code: <?= $contact->getCode_name(); ?></h6>
-            <p class="card-text">Date de naissance: <?= $contact->getBirthdate(); ?></p>
+            <p class="card-text">Date de naissance: <?= $birthdate->format('d/m/Y'); ?></p>
             <p class="card-text">Pays de naissance: <?= $contact->getNationality(); ?></p>
             <p class="card-text">Mission.s: <?php
             if ($contact->getMission_id() === null) {

@@ -11,17 +11,20 @@ $missionController = new MissionController();
 $specialityController = new SpecialityController();
 $specialities = $specialityController->getAll();
 
+
+
 ?>
 
 <div class="flex-grow-1 w-65">
 <?php
-foreach ($agents as $agent) { ?>
+foreach ($agents as $agent) { 
+  $birthdate = new DateTime($agent->getBirthdate());?>
    <div class="missions d-lg-flex justify-content-between align-items-center">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title"><?= $agent->getFirstname().' '.$agent->getLastname(); ?></h4>
             <h6 class="card-subtitle mb-2 text-muted">Nom de code: <?= $agent->getCode_name(); ?></h6>
-            <p class="card-text">Date de naissance: <?= $agent->getBirthdate(); ?></p>
+            <p class="card-text">Date de naissance: <?= $birthdate->format('d/m/Y'); ?></p>
             <p class="card-text">Pays de naissance: <?= $agent->getNationality(); ?></p>
             <p class="card-text">Spécialité.s : <?php
             foreach ($specialities as $speciality) {

@@ -15,4 +15,4 @@ $contactController = new ContactController();
 $updatedContact = new Contact($_POST);
 $contactController->update($updatedContact);
 
-header("Location: ../../templates/view/contacts.php");
+echo "<script>window.location= '../../templates/view/contacts.php'</script>"; 

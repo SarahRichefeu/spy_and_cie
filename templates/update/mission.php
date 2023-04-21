@@ -65,12 +65,7 @@ $type = $typeController->get($mission->getMission_type_id());
       <label for="missionType" class="col-form-label">Type</label>
       <select class="form-select" aria-label="Default select example" name="mission_type_id">
         <?php foreach($types as $type) : ?>
-          <option value="<?= $mission->getMission_type_id() ?>"
-          <?php 
-            if ($type->getId() === $mission->getMission_type_id()) {
-              echo 'selected';
-            } ?>
-          ><?= $type->getName() ?></option>
+          <option value="<?= $mission->getMission_type_id() ?>"<?= $type->getId() === $mission->getMission_type_id() ? 'selected' : ''?>><?= $type->getName() ?></option>
         <?php endforeach; ?>
       </select>    
     </div>
@@ -78,13 +73,8 @@ $type = $typeController->get($mission->getMission_type_id());
       <label for="status" class="col-form-label">Statut</label>
       <select class="form-select" aria-label="Default select example" name="mission_status_id">
         <?php foreach($states as $state) : ?>
-          <option value="<?= $mission->getMission_status_id() ?>"            
-          <?php 
-            if ($state->getId() === $mission->getMission_status_id()) {
-              echo 'selected';
-            } ?>>
-            <?= $state->getName()?>
-        </option>
+          <option value="<?= $mission->getMission_status_id() ?>"    
+          <?= $state->getId() === $mission->getMission_status_id() ? 'selected' : ''?>><?= $state->getName()?></option>
         <?php endforeach; ?>
       </select>
     </div>

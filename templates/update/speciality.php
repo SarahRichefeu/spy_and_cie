@@ -32,13 +32,7 @@ $agents = $agentController->getAll();
         <h5>Agent concerné (un seul choix): </h5>
         <?php foreach ($agents as $agent) : ?>
           <div class="form-check">
-            <input class="form-check-input" type="radio" value="<?= $agent->getId()?>" id="flexCheckDefault" name="agent_id"
-            <?php
-                if ($agent->getId() == $speciality->getAgent_id()) {
-                    echo "checked";
-                }
-            ?>
-            >
+            <input class="form-check-input" type="radio" value="<?= $agent->getId()?>" id="flexCheckDefault" name="agent_id" <?= $agent->getId() == $speciality->getAgent_id() ? 'checked' : ''?>>
             <label class="form-check-label" for="flexCheckDefault">
               <?= $agent->getFirstname() . " " . $agent->getLastname() ?>
             </label>

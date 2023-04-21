@@ -17,4 +17,4 @@ $specialityController = new SpecialityController();
 $newSpeciality = new Speciality($_POST);
 $specialityController->create($newSpeciality);
 
-header("Location: ../../templates/view/specialities.php");
+echo "<script>window.location= '../../templates/view/specialities.php'</script>"; 

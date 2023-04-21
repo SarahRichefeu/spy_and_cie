@@ -15,4 +15,4 @@ $targetController = new TargetController();
 $updatedTarget = new Target($_POST);
 $targetController->update($updatedTarget);
 
-header("Location: ../../templates/view/targets.php");
+echo "<script>window.location= '../../templates/view/targets.php'</script>"; 

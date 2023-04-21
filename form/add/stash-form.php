@@ -17,4 +17,4 @@ $stashController = new stashController();
 $newStash = new Stash($_POST);
 $stashController->create($newStash);
 
-header("Location: ../../templates/view/stashs.php");
+echo "<script>window.location= '../../templates/view/stashs.php'</script>"; 

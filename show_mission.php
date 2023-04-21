@@ -31,7 +31,8 @@ $contacts = $contactController->getAll();
 $statusController = new StatusController();
 $status = $statusController->get($mission->getMission_status_id())->getName();
 
-
+$startDate = new DateTime($mission->getStart_date());
+$endDate = new DateTime($mission->getEnd_date());
 
 
 
@@ -67,13 +68,19 @@ $status = $statusController->get($mission->getMission_status_id())->getName();
                 }
                 endforeach ?>
         </p>
-        <p class="start-date">Date de début: <?= $mission->getStart_date()?></p>
-        <p class="end-date">Date de fin: <?= $mission->getEnd_date()?></p>
-        <p>Spécialité: Hacking</p>
+        <p class="start-date">Date de début: <?= $startDate->format('d/m/Y')?></p>
+        <p class="end-date">Date de fin: <?= $endDate->format('d/m/Y')?></p>
+        <p>Spécialité: <?= $mission->getSpeciality()?></p>
         <p>Pays: <?= $mission->getCountry()?></p>
         <p>Statut: <?= $status ?></p>
 
     </div>
+
+    <div class="delete d-flex justify-content-end">
+        <button class="btn btn-warning">
+            <a href="templates/update/mission.php?id=<?= $mission->getId() ?>">Modifier la mission</a>
+        </button>
+     </div>
 
 </div>
 

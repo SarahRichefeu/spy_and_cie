@@ -14,7 +14,7 @@ spl_autoload_register("loadClass");
 try {
     $missionController = new MissionController();
     $missionController->delete($_GET["id"]);
-    header("Location: ../../index.php");
+    echo "<script>window.location= '../../index.php'</script>"; 
 } catch (Exception $e) {
     echo "La mission n'a pas pu être supprimée.";
 }

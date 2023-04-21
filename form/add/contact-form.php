@@ -17,4 +17,4 @@ $contactController = new ContactController();
 $newContact = new Contact($_POST);
 $contactController->create($newContact);
 
-header("Location: ../../templates/view/contacts.php");
+echo "<script>window.location= '../../templates/view/contacts.php'</script>"; 

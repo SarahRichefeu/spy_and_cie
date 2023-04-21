@@ -14,7 +14,7 @@ spl_autoload_register("loadClass");
 try {
     $targetController = new TargetController();
     $targetController->delete($_GET["id"]);
-    header("Location: ../../templates/view/targets.php");
+    echo "<script>window.location= '../../templates/view/targets.php'</script>"; 
 } catch (Exception $e) {
     echo "La cible n'a pas pu être supprimée.";
 }

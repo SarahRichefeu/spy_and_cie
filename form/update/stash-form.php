@@ -15,4 +15,4 @@ $stashController = new StashController();
 $updatedStash = new Stash($_POST);
 $stashController->update($updatedStash);
 
-header("Location: ../../templates/view/stashs.php");
+echo "<script>window.location= '../../templates/view/stashs.php'</script>"; 

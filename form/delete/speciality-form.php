@@ -14,7 +14,7 @@ spl_autoload_register("loadClass");
 try {
     $specialityController = new SpecialityController();
     $specialityController->delete($_GET["id"]);
-    header("Location: ../../templates/view/specialities.php");
+    echo "<script>window.location= '../../templates/view/specialities.php'</script>"; 
 } catch (Exception $e) {
     echo "La spécialité n'a pas pu être supprimée.";
 }

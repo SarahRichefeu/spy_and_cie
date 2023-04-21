@@ -18,4 +18,4 @@ $newMission = new Mission($_POST);
 $missionController->create($newMission);
 
 
-header("Location: ../../index.php");
+echo "<script>window.location= '../../index.php'</script>"; 

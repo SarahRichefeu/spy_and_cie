@@ -39,13 +39,7 @@ $missions = $missionController->getAll();
         <h5>Missions: </h5>
         <?php  foreach ($missions as $mission) : ?>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="<?= $mission->getId()?>" id="flexCheckDefault" name="mission_id"
-            <?php 
-                if($mission->getId() == $stash->getMission_id()){
-                    echo "checked";
-                }
-            ?>
-            >
+            <input class="form-check-input" type="checkbox" value="<?= $mission->getId()?>" id="flexCheckDefault" name="mission_id" <?=  $mission->getId() == $stash->getMission_id() ? 'checked' : ''?>>
             <label class="form-check-label" for="flexCheckDefault">
               <?=  $mission->getName()?>
             </label>

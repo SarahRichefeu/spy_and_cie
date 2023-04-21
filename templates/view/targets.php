@@ -16,13 +16,14 @@ $specialities = $specialityController->getAll();
 
 <div class="flex-grow-1 w-65">
 <?php
-foreach ($targets as $target) { ?>
+foreach ($targets as $target) { 
+  $birthdate = new DateTime($target->getBirthdate());?>
    <div class="missions d-lg-flex justify-content-between align-items-center">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title"><?= $target->getFirstname().' '.$target->getLastname(); ?></h4>
             <h6 class="card-subtitle mb-2 text-muted">Nom de code: <?= $target->getCode_name(); ?></h6>
-            <p class="card-text">Date de naissance: <?= $target->getBirthdate(); ?></p>
+            <p class="card-text">Date de naissance: <?= $birthdate->format('d/m/Y'); ?></p>
             <p class="card-text">Pays de naissance: <?= $target->getNationality() ?></p>
             <p class="card-text">Mission.s: <?php
             if ($target->getMission_id() === null) {
