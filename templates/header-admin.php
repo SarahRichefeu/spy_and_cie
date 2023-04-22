@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function loadClass(string $class)
 {
@@ -81,7 +82,7 @@ spl_autoload_register("loadClass");
               </ul>
       <div class="login col-md-3 text-end">
         <button type="button" class="btn btn-light me-4">
-            <a href="../../login.php">Log Out</a>
+            <a href="../../tools/logout.php">Log Out</a>
         </button>
       </div>
     </header>

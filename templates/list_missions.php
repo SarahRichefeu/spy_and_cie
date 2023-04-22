@@ -1,15 +1,5 @@
 <?php
 
-function loadClass(string $class)
-{
-    if (str_contains($class, "Controller")) {
-        require_once "./Controller/$class.php";
-    } else {
-        require_once "./Entity/$class.php";
-    }
-}
-
-spl_autoload_register("loadClass");
 
 $missionController = new MissionController();
 $missions = $missionController->getAll();
@@ -29,8 +19,9 @@ foreach ($missions as $mission) { ?>
         </div>
         <div class="btn">
           <button type="button" class="btn btn-outline-dark"><a href="show_mission.php?id=<?= $mission->getId()?>">Détails</a></button>
-          <!-- if connected -->
-          <button type="button" class="btn btn-outline-dark"><a href="templates/update/mission.php?id=<?= $mission->getId()?>">Modifier</a></button>
+          <?php if (isset($_SESSION['admin'])) { ?>
+            <button type="button" class="btn btn-outline-dark"><a href="templates/update/mission.php?id=<?= $mission->getId()?>">Modifier</a></button>
+          <?php } ?>
         </div>
     </div>
 <?php }; ?>

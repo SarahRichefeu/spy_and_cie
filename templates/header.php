@@ -1,3 +1,19 @@
+<?php 
+session_start();
+
+function loadClass(string $class)
+{
+    if (str_contains($class, "Controller")) {
+        require_once "Controller/$class.php";
+    } else {
+        require_once "Entity/$class.php";
+    }
+}
+
+spl_autoload_register("loadClass");
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,12 +35,12 @@
                 <img src="assets/logo.png" alt="Logo" class="logo">
             </a>
           </div>
-              <!-- if admin is connected-->
-              <ul class="nav nav-admin col-12 col-md-auto mb-2 mb-md-0">
+          <?php if (isset($_SESSION["admin"])) { ?>
+            <ul class="nav nav-admin col-12 col-md-auto mb-2 mb-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Missions</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="index.php">Voir</a>
+                    <a class="dropdown-item" href="#">Voir</a>
                         <a class="dropdown-item" href="templates/add/mission.php">Ajouter</a>
                     </div>
                     </li>
@@ -36,7 +52,7 @@
                     </div>
                     </li>
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contacts</a>
+                    <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Contact</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="templates/view/contacts.php">Voir</a>
                         <a class="dropdown-item" href="templates/add/contact.php">Ajouter</a>
@@ -64,11 +80,14 @@
                     </div>
                     </li>
               </ul>
+          <?php } ?>
       <div class="login col-md-3 text-end">
         <button type="button" class="btn btn-light me-4">
-            <a href="login.php">Log In</a>
-            <!-- if admin is connected -> 
-            <a href="logout.php">Log Out</a> --> 
+          <?php if (isset($_SESSION["admin"])) {
+            echo "<a href='logout.php'>Log Out</a>";
+          } else {
+            echo "<a href='tools/login.php'>Log In</a>";
+          } ?>
         </button>
       </div>
     </header>

@@ -2,16 +2,6 @@
 
 require_once "templates\header.php";
 
-function loadClass(string $class)
-{
-    if (str_contains($class, "Controller")) {
-        require_once "./Controller/$class.php";
-    } else {
-        require_once "./Entity/$class.php";
-    }
-}
-
-spl_autoload_register("loadClass");
 
 $missionController = new MissionController();
 $mission = $missionController->get($_GET['id']);
@@ -76,11 +66,13 @@ $endDate = new DateTime($mission->getEnd_date());
 
     </div>
 
+    <?php if (isset($_SESSION['admin'])) { ?>
     <div class="delete d-flex justify-content-end">
         <button class="btn btn-warning">
-            <a href="templates/update/mission.php?id=<?= $mission->getId() ?>">Modifier la mission</a>
+            <a href='templates/update/mission.php?id=<?= $mission->getId() ?>'>Modifier la mission</a>
         </button>
      </div>
+    <?php } ?>
 
 </div>
 
