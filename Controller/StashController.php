@@ -31,6 +31,24 @@ class StashController extends Stash
         return $this->pdo;
     }
 
+    public function count(): int 
+    {
+        $req = $this->pdo->query("SELECT COUNT(*) FROM stash");
+        $count = $req->fetchColumn();
+        return $count;
+    }
+
+    public function getLimited(int $first, int $perPage) : array 
+    {
+        $stashs = [];
+        $req = $this->pdo->query("SELECT * FROM stash LIMIT $first, $perPage");
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $stash) {
+            $stashs[] = new Stash($stash);
+        }
+        return $stashs;
+    }
+
     public function getAll(): array 
     {
         $stashs = [];

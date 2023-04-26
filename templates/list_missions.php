@@ -2,7 +2,14 @@
 
 
 $missionController = new MissionController();
-$missions = $missionController->getAll();
+$count = $missionController->count();
+
+$perPage = 5;
+
+require "tools/pagination.php";
+
+$missions = $missionController->getLimited($first, $perPage);
+$count = $missionController->count();
 
 ?>
 
@@ -27,3 +34,20 @@ foreach ($missions as $mission) { ?>
 <?php }; ?>
 </div>
  
+<div class="m-auto">
+  <nav aria-label='Page navigation'>
+    <ul class="pagination p-3">
+      <li class="page-item disabled">
+        <a class="page-link" href="#">&laquo;</a>
+      </li>
+        <?php for ($i = 1; $i <= $nbPages; $i++) { ?>
+          <li class="page-item">
+            <a class="page-link <?= ($currentPage == $i) ? 'active' : '' ?>" href="?page=<?= $i ?>"><?= $i ?></a>
+          </li>
+        <?php } ?>
+      <li class="page-item">
+        <a class="page-link" href="#">&raquo;</a>
+      </li>
+    </ul>
+  </nav>
+</div> 

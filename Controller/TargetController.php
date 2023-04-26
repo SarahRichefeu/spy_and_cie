@@ -31,6 +31,24 @@ class TargetController extends Target
         return $this->pdo;
     }
 
+    public function count(): int 
+    {
+        $req = $this->pdo->query("SELECT COUNT(*) FROM target");
+        $count = $req->fetchColumn();
+        return $count;
+    }
+
+    public function getLimited(int $first, int $perPage) : array 
+    {
+        $targets = [];
+        $req = $this->pdo->query("SELECT * FROM target LIMIT $first, $perPage");
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $target) {
+            $targets[] = new Target($target);
+        }
+        return $targets;
+    }
+
     public function getAll(): array 
     {
         $targets = [];

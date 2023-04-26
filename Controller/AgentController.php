@@ -31,6 +31,24 @@ class AgentController extends Agent
         return $this->pdo;
     }
 
+    public function count(): int 
+    {
+        $req = $this->pdo->query("SELECT COUNT(*) FROM agent");
+        $count = $req->fetchColumn();
+        return $count;
+    }
+
+    public function getLimited(int $first, int $limit): array 
+    {
+        $agents = [];
+        $req = $this->pdo->query("SELECT * FROM agent LIMIT $first, $limit");
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $agent) {
+            $agents[] = new Agent($agent);
+        }
+        return $agents;
+    }
+
     public function getAll(): array 
     {
         $agents = [];

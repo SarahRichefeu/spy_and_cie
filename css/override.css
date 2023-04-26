@@ -49,6 +49,7 @@ h2 {
 
 .card {
     width: 75vw;
+    max-height: 30vh;
 }
 
 @media screen and (max-width: 990px) {

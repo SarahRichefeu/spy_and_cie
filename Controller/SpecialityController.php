@@ -26,6 +26,24 @@ class SpecialityController
         return $this;
     }
 
+    public function count(): int 
+    {
+        $req = $this->pdo->query("SELECT COUNT(*) FROM speciality");
+        $count = $req->fetchColumn();
+        return $count;
+    }
+
+    public function getLimited(int $first, int $perPage): array 
+    {
+        $specialities = [];
+        $req = $this->pdo->query("SELECT * FROM speciality LIMIT $first, $perPage");
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $speciality) {
+            $specialities[] = new Speciality($speciality);
+        }
+        return $specialities;
+    }
+
     public function getAll(): array 
     {
         $specialities = [];

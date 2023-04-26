@@ -86,7 +86,7 @@ spl_autoload_register("loadClass");
           <?php if (isset($_SESSION["admin"])) {
             echo "<a href='logout.php'>Log Out</a>";
           } else {
-            echo "<a href='tools/login.php'>Log In</a>";
+            echo "<a href='login.php'>Log In</a>";
           } ?>
         </button>
       </div>

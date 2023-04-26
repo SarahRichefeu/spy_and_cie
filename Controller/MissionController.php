@@ -31,11 +31,30 @@ class MissionController extends Mission
         return $this->pdo;
     }
 
+    public function count(): int 
+    {
+        $req = $this->pdo->query("SELECT COUNT(*) FROM mission");
+        $count = $req->fetchColumn();
+        return $count;
+    }
+
     public function getAll(): array 
     {
         $missions = [];
         $req = $this->pdo->query("SELECT * FROM mission");
-        $data = $req->fetchAll();
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $mission) {
+            $missions[] = new Mission($mission);
+        }
+        return $missions;
+    }
+
+
+    public function getLimited(int $first, int $limit): array 
+    {
+        $missions = [];
+        $req = $this->pdo->query("SELECT * FROM mission LIMIT $first, $limit");
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
         foreach ($data as $mission) {
             $missions[] = new Mission($mission);
         }

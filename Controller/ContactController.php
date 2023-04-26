@@ -31,6 +31,24 @@ class ContactController extends Contact
         return $this->pdo;
     }
 
+    public function count(): int 
+    {
+        $req = $this->pdo->query("SELECT COUNT(*) FROM contact");
+        $count = $req->fetchColumn();
+        return $count;
+    }
+
+    public function getLimited(int $first, int $perPage): array 
+    {
+        $contacts = [];
+        $req = $this->pdo->query("SELECT * FROM contact LIMIT $first, $perPage");
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($data as $contact) {
+            $contacts[] = new Contact($contact);
+        }
+        return $contacts;
+    }
+
     public function getAll(): array 
     {
         $contacts = [];

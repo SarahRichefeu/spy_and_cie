@@ -26,6 +26,13 @@ class MissionTypeController
         return $this;
     }
 
+    public function count(): int 
+    {
+        $req = $this->pdo->query("SELECT COUNT(*) FROM mission_type");
+        $count = $req->fetchColumn();
+        return $count;
+    }
+
     public function getAll(): array 
     {
         $missionTypes = [];

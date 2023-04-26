@@ -2,15 +2,21 @@
 
 require_once "../header-admin.php";
 
-
 $agentController = new AgentController();
-$agents = $agentController->getAll();
+$count = $agentController->count();
+
+//ELements par page
+$perPage = 3;
+
+require '../../tools/pagination.php';
+
+$agents = $agentController->getLimited($first, $perPage);
+
 
 $missionController = new MissionController();
 
 $specialityController = new SpecialityController();
 $specialities = $specialityController->getAll();
-
 
 
 ?>
@@ -48,31 +54,25 @@ foreach ($agents as $agent) {
 <?php }; ?>
 </div>
 
-<nav aria-label='Page navigation'>
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <a class="page-link" href="#">&laquo;</a>
-    </li>
-    <li class="page-item active">
-      <a class="page-link" href="#">1</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">2</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">3</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">4</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">5</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">&raquo;</a>
-    </li>
-  </ul>
-</nav>
- 
+
+<div class="m-auto">
+  <nav aria-label='Page navigation'>
+    <ul class="pagination p-3">
+      <li class="page-item disabled">
+        <a class="page-link" href="#">&laquo;</a>
+      </li>
+        <?php for ($i = 1; $i <= $nbPages; $i++) { ?>
+          <li class="page-item">
+            <a class="page-link <?= ($currentPage == $i) ? 'active' : '' ?>" href="agents.php?page=<?= $i ?>"><?= $i ?></a>
+          </li>
+        <?php } ?>
+      <li class="page-item">
+        <a class="page-link" href="#">&raquo;</a>
+      </li>
+    </ul>
+  </nav>
+</div> 
+
+
 <?php
 require_once "../footer-admin.php";
