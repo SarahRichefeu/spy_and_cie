@@ -1,7 +1,7 @@
 <?php
 
 
-class CountryController
+class MissionTypeController
 {
     
     private PDO $pdo;
@@ -26,39 +26,31 @@ class CountryController
         return $this;
     }
 
+    public function count(): int 
+    {
+        $req = $this->pdo->query("SELECT COUNT(*) FROM mission_type");
+        $count = $req->fetchColumn();
+        return $count;
+    }
+
     public function getAll(): array 
     {
-        $countries = [];
-        $req = $this->pdo->query("SELECT * FROM country");
+        $missionTypes = [];
+        $req = $this->pdo->query("SELECT * FROM mission_type");
         $data = $req->fetchAll();
-        foreach ($data as $country) {
-            $countries[] = new Country($country);
+        foreach ($data as $missionType) {
+            $missionTypes[] = new MissionType($missionType);
         }
-        return $countries;
+        return $missionTypes;
     }
 
-    public function get(int $id): Country 
+    public function get(int $id): MissionType 
     {
-        $req = $this->pdo->prepare("SELECT * FROM country WHERE id = :id");
+        $req = $this->pdo->prepare("SELECT * FROM mission_type WHERE id = :id");
         $req->execute(['id' => $id]);
         $data = $req->fetch();
-        $country = new Country($data);
-        return $country;
-    }
-/*
-    public function create(Mission $mission): bool
-    {
-
+        $missionType = new MissionType($data);
+        return $missionType;
     }
 
-    public function update(Mission $mission): bool
-    {
-
-    }
-
-    public function delete(Mission $mission): bool 
-    {
-
-    }
-*/
 }

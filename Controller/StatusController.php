@@ -29,12 +29,12 @@ class StatusController
     public function getAll(): array 
     {
         $status = [];
-        $req = $this->pdo->query("SELECT * FROM mission_status");
+        $req = $this->pdo->query("SELECT * FROM `mission_status`");
         $data = $req->fetchAll();
         foreach ($data as $status) {
-            $status[] = new Status($status);
+            $states[] = new Status($status);
         }
-        return $status;
+        return $states;
     }
 
     public function get(int $id): Status 
@@ -45,20 +45,4 @@ class StatusController
         $status = new Status($data);
         return $status;
     }
-/*
-    public function create(Mission $mission): bool
-    {
-
-    }
-
-    public function update(Mission $mission): bool
-    {
-
-    }
-
-    public function delete(Mission $mission): bool 
-    {
-
-    }
-*/
 }

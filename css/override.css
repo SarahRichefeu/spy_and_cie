@@ -5,8 +5,15 @@
     --dark : #2f2f2f;
 }
 
+html {
+    height: 100%;
+}
+
 body {
+    min-height: 100%;
     font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
@@ -32,9 +39,9 @@ h2 {
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
+    flex-shrink: 0;
 }
+
 
 .missions {
     margin: 2vh 2vw 0 2vw;
@@ -42,4 +49,37 @@ h2 {
 
 .card {
     width: 75vw;
+    max-height: 30vh;
 }
+
+@media screen and (max-width: 990px) {
+    .card {
+        width: 95vw;
+    }
+}
+
+@media screen and (max-width: 1225px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .login {
+        text-align: center!important;
+    }
+}
+
+.delete {
+    margin: 10px 30px 10px 0;
+}
+
+.delete a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.accordion {
+    width: 70vw;
+    margin: 0 auto;
+}
+    

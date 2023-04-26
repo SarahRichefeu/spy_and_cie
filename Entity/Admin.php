@@ -4,8 +4,7 @@ class Admin
 {
     //Attributes
     private int $id;
-    private string $lastname;
-    private string $firstname;
+    private string $username;
     private string $email;
     private string $password;
     private string $created_at;
@@ -42,28 +41,15 @@ class Admin
     }
 
 
-    public function getLastname(): string
+    public function getUsername(): string
     {
-        return $this->lastname;
+        return $this->username;
     }
 
 
-    public function setLastname(string $lastname): self
+    public function setUsername(string $username): self
     {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getFirstname(): string
-    {
-        return $this->firstname;
-    }
-
-
-    public function setFirstname(string $firstname): self
-    {
-        $this->firstname = $firstname;
+        $this->username = $username;
 
         return $this;
     }

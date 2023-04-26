@@ -1,6 +1,6 @@
 <?php
 
-class Country 
+class MissionType 
 {
     private int $id; 
     private string $name;
